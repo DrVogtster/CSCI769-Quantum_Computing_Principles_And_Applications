@@ -43,7 +43,7 @@
 1 & 0 \\ 
 0 & e^{i\Tilde{\theta}} 
 \end{bmatrix}$ , where $e^{i \Tilde{\theta}} = \cos(\Tilde{\theta}) +i\sin(\Tilde{\theta}) $. Find for the S,T, and Z gate what is the corresponding value of $\Tilde{\theta} $ that $P(\Tilde{\theta})$ yields the gate. 
-\item b) Recall for on the Bloch Sphere $\ket{\psi} = \cos(\frac{\theta}{2}) \ket{0} +\sin(\frac{\theta}{2}) e^{i\phi} \ket{1} $, where $\phi$ is the phase. Report what happens to the phase of the quantum state when each gate is individually applied to the quantum state $\ket{\psi}$: X, S, T, and Z. Also report the phase shift for the Y gate as well. Hint: For the Y gate, $Y=iXZ$. Lastly figuring out what what value of $\Tilde{\theta}$ Euler's identity yields $i$, I promise this might be useful for this endeavor \smiley{}.
+\item b) Recall for on the Bloch Sphere $\ket{\psi} = \cos(\frac{\theta}{2}) \ket{0} +\sin(\frac{\theta}{2}) e^{i\phi} \ket{1} $, where $\phi$ is the phase. Report what happens to the phase of the quantum state when each gate is individually applied to the quantum state $\ket{\psi}$: X, S, T, and Z. Also report the phase shift for the Y gate as well. Hint: For the Y gate, $Y=iXZ$. Lastly figuring out what what value of $\Tilde{\theta}$ Euler's identity yields $i$, I promise this might be useful for this endeavor \smiley{}. For each gate do you see a relationship between the $\Tilde{\theta}$ and the shift that occurs in $\phi$ when you apply a given gate \smiley{}? Write what that shift looks like in terms of $\Tilde{\theta}$ if a general phase gate $P(\Tilde{\theta})$ was applied for some $\Tilde{\theta}$.
 \end{itemize}
 
 
@@ -55,23 +55,23 @@
 
 \textbf{Summary:} Ryan wants you to appreciate measurement in a more rigorous manner, and also understand how measurement is impacted by phase gates. This problem will explore the standard $\ket{0}, \ket{1} $ basis. 
 
-(a) Apply an S-gate to $\ket{\psi} = \frac{1}{\sqrt{2}}( \ket{0} + \ket{1})$ e.g. $\ket{\phi_S} = S \ket{\phi}$. What is the resulting state in the computational basis?
+(a) Apply an S-gate to $\ket{\psi} = \frac{1}{\sqrt{2}}( \ket{0} + \ket{1})$ e.g. $\ket{\psi_S} = S \ket{\psi}$. What is the resulting state in the computational basis?
 
 (b)Measurement can be defined rigorously through inner products. For a state $\phi$, the probability of measuring basis state $\ket{j}$ is $P_j = |\langle j | \psi \rangle|^2 =   |\langle \psi | j \rangle|^2$. Use this definition to find probability of being in the $\ket{0}$ and $\ket{1}$ state respectively for both $\ket{\psi}$ and $\ket{\psi_S}$. Compare the measurements of being in the basis states for $\ket{\psi}$ and $\ket{\psi_S}$ - do they differ?
 
-\subsection*{2. Phase and Measurement In the Hadamard Basis (10 pts)}
+\subsection*{3. Phase and Measurement In the Hadamard Basis (10 pts)}
 
 \textbf{Summary:} Ryan wants you to appreciate measurement in a more rigorous manner, and also understand how measurement is impacted by phase gates. This problem will explore the Hadamard Basis $\ket{+} = \frac{1}{\sqrt{2}} ( \ket{0} + \ket{1}) , \ket{-} =  \frac{1}{\sqrt{2}} ( \ket{0} - \ket{1}) $ basis.
 
-(a) Apply an S-gate to $\ket{\psi} = \frac{1}{\sqrt{2}}( \ket{+} + \ket{-})$ e.g. $\ket{\phi_S} = S \ket{\phi}$. What is the resulting state in the computational basis?
+(a) Apply an S-gate to $\ket{\psi} = \frac{1}{\sqrt{2}}( \ket{+} + \ket{-})$ e.g. $\ket{\psi_S} = S \ket{\psi}$. What is the resulting state in the computational basis?
 
 (b)Measurement can be defined rigorously through inner products. For a state $\phi$, the probability of measuring basis state $\ket{j}$ is $P_j = |\langle j | \psi \rangle|^2 =   |\langle \psi | j \rangle|^2$. Use this definition to find probability of being in the $\ket{+}$ and $\ket{-}$ state respectively for both $\ket{\psi}$ and $\ket{\psi_S}$. Compare the measurements of being in the basis states for $\ket{\psi}$ and $\ket{\psi_S}$ - do they differ?
 
 \subsection*{4. Getting some experience with the Toffoli (Controlled - Controlled X  - CCX) Gate (10 pts)}
 
-\textbf{Summary:} On the journey from a quantum youngster to a quantum young adult, it’s vital to experience the challenge of calculating this circuit at least once. You’ll appreciate it later if you decide to eventually move from a quantum young adult to a rambling quantum old person like me \smiley{}.
+\textbf{Summary:} On the journey from a quantum youngster to a quantum young adult, it’s vital to experience the challenge of calculating this circuit at least once. You’ll appreciate it later if you decide to eventually move from a quantum young adult to a rambling quantum old person like me \smiley{}. Note that $T^\dagger = T^*$ is the conjugate tranpose of $T$!
 
-Implement the Toffoli Circuit on the state $\ket{110}$ using two approaches. First, utilize the Toffoli circuit's matrix form to act on the state's vector representation to find what the Toffoli does to this state. Then, proceed to apply the circuit in stages, documenting the intermediate quantum states produced at each layer, until reaching the complete result of the Toffoli circuit applied to the state. Here is the Toffoli circuit picture
+Apply the Toffoli Circuit on the state $\ket{110}$ using two approaches. First, utilize the Toffoli circuit's matrix form to act on the state's vector representation to find what the Toffoli does to this state. Then, proceed to apply the circuit in stages, documenting the intermediate quantum states produced at each layer, until reaching the complete result of the Toffoli circuit applied to the state. Do the two results agree? Here is the Toffoli circuit picture
 \includegraphics[]{toff.png}
 and the matrix representation of the operator:
 
@@ -108,22 +108,68 @@ U (|\psi\rangle \otimes |0\rangle) = |\psi\rangle \otimes |\psi\rangle, \quad \f
 \item 2. If cloning were possible, then for some unitary \( U \):
 
    \[
-   U(|\psi\rangle \otimes |0\rangle) = |\psi\rangle \otimes |\psi\rangle
+   \ket{\psi_1}= U(|\psi\rangle \otimes |0\rangle) = |\psi\rangle \otimes |\psi\rangle
    \]
 
    \[
-   U(|\phi\rangle \otimes |0\rangle) = |\phi\rangle \otimes |\phi\rangle
+   \ket{\psi_2} =U(|\phi\rangle \otimes |0\rangle) = |\phi\rangle \otimes |\phi\rangle
    \]
 
-\item 3. Taking the inner product of these two equations with eacother, and follow what results using \[
+\item 3. Taking the inner product of these two equations e.g. $\langle \psi_1 | \psi_2 \rangle $with eacother, and follow what results using \[
 \langle A \otimes B | C \otimes D \rangle = \langle A | C \rangle \langle B | D \rangle
 \] to find the contradiction that the theorem would only hold for very specific quantum states, and not arbitrary quantum states
 \end{itemize}
 
 (b) While an arbitrary quantum state cannot be copied, there are two instances quantum state(s) can be copied. Write them down and explain why they can be copied.
 
+\subsection*{6. Unitarizing Quantum Operations Using the Gram--Schmidt Procedure (10 pts)}
+
+\textbf{Summary:}\\
+In quantum computing, every operation must be represented by a unitary matrix. However, in practice one may obtain a set of operations (or state vectors) that are nearly, but not exactly, unitary due to experimental imperfections or as a result of error correction protocols. For example, when calibrating custom quantum gates, one might obtain a set of basis vectors that are not mutually orthogonal. Ensuring strict unitarity is critical since unitary evolution preserves quantum state norms and guarantees reversibility. The Gram--Schmidt process provides a systematic method to convert a set of linearly independent (but non-orthogonal) vectors into an orthonormal set. When these vectors are arranged as columns in a matrix, the resulting matrix is unitary.
+
+Recall that a matrix \( U \) is \emph{unitary} if:
+\[
+U^\dagger U = U U^\dagger = I,
+\]
+where \( U^\dagger \) is the conjugate transpose of \( U \) and \( I \) is the identity matrix.
+
+\bigskip
 
 
+
+
+    Given a set of \( N \) linearly independent vectors \( \{v_1, v_2, \ldots, v_N\} \) in \( \mathbb{C}^N \), the Gram--Schmidt process constructs an orthonormal set \( \{q_1, q_2, \ldots, q_N\} \) via:
+    \[
+    q_1 = \frac{v_1}{\|v_1\|},
+    \]
+    and for \( k = 2, 3, \ldots, N \),
+    \[
+    q_k = \frac{v_k - \sum_{j=1}^{k-1} \langle q_j, v_k \rangle\, q_j}{\left\| v_k - \sum_{j=1}^{k-1} \langle q_j, v_k \rangle\, q_j \right\|}.
+    \]
+(a) Prove that arranging these vectors as columns in the matrix
+    \[
+    U = \begin{bmatrix} | & | & & | \\ q_1 & q_2 & \cdots & q_N \\ | & | & & | \end{bmatrix},
+    \]
+    guarantees that \( U \) is unitary. Hint: remember all these vectors  that were created by Gram-Schmidt form an orthonormal set of vectors:\( \{q_1, q_2, \ldots, q_N\} \) \smiley{}.
+
+
+
+(b) Let
+    \[
+    A = \begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix}.
+    \]
+    Treat the columns of \( A \) as the set \( \{v_1, v_2\} \). Apply the Gram--Schmidt process:
+    \begin{align*}
+        q_1 &= \frac{v_1}{\|v_1\|} = \frac{1}{\sqrt{1^2+0^2}} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} 1 \\ 0 \end{bmatrix},\\[1ex]
+        q_2 &= \frac{v_2 - \langle q_1, v_2 \rangle\, q_1}{\|v_2 - \langle q_1, v_2 \rangle\, q_1\|}.
+    \end{align*}
+    Compute \( \langle q_1, v_2 \rangle \) and determine \( q_2 \). Form the matrix
+    \[
+    U = \begin{bmatrix} q_1 & q_2 \end{bmatrix},
+    \]
+    and prove that \( U \) is unitary by showing that \( U^\dagger U = I \).
+    
+   
 \subsection*{7. Understanding the Impact Of Gate Failure Over A Long Period Of Time: Round 1 (10 pts)}
 
 \textbf{Summary:} This question is designed to help everyone understand how such errors accumulate when quantum gates are applied multiple times. By analyzing how a small deviation in a Hadamard gate propagates over repeated applications, you can start to appreciate how quantum gate imperfections affect measurement probabilities (you could play this same game with any quantum gate - this question will give you the general idea though). The goal is to:
@@ -150,7 +196,7 @@ Consider the following scenario:
     \[
     H' = H + \epsilon U
     \]
-    where \( U \) is some small deviation matrix and \( \epsilon \) is a small error factor.
+    where \( U \) is some small deviation matrix and \( \epsilon \) is a small error factor. Also assume that U is constrainted in such a way that $H'$ is unitary.
     \item Over many applications, the accumulated error causes the final state to deviate from \( |0\rangle \). This impacts measurement probabilities.
 \end{enumerate}
 
@@ -162,7 +208,8 @@ Consider the following scenario:
     \[
     |\psi_n\rangle = (H')^n |0\rangle.
     \]
-    Expand \( |\psi_n\rangle \) in terms of \( \epsilon \) and discuss how the error grows as \( n \) increases.
+    Expand \( |\psi_n\rangle \) in terms of \( \epsilon \) and discuss how the error grows as \( n \) increases. Hint: Consider and use the first order approximation: $(H')^n \approx (H)^n + n\,\epsilon\, (H)^{n-1} U + \mathcal{O}(\epsilon^2) \quad (\text{assume  } O(\epsilon^2) \text{ is negligible and not required to be used in computation})$
+    
     \item Given that quantum measurements return \( |0\rangle \) with probability \( P(0) = |\langle 0 | \psi_n \rangle|^2 \), derive how this probability deviates from the expected value as a function of \( n \) and \( \epsilon \).
     \item Suppose \( \epsilon = 0.01 \) and \( n = 100 \). Numerically estimate the probability \( P(0) \) and discuss how this compares to the ideal case (\( P(0) = 1 \)).
     \item Based on your results, discuss why error correction techniques or fault-tolerant quantum computing are necessary for reliable quantum computation.
@@ -189,7 +236,7 @@ Consider the following scenario:
     \[
     P'(\theta) = P(\theta) + \epsilon U
     \]
-    where \( U \) is some small deviation matrix and \( \epsilon \) is a small error factor.
+    where \( U \) is some small deviation matrix and \( \epsilon \) is a small error factor. Also assume that U is constrainted in such a way that $P'(\theta)$ is unitary.
     \item Over many applications, the accumulated phase error causes the final state to deviate from the expected state. This impacts constructive and destructive interference in measurement probabilities.
 \end{enumerate}
 
@@ -209,13 +256,14 @@ Consider the following scenario:
     \[
     |\psi_n\rangle = (P'(\theta))^n |+\rangle.
     \]
-    Expand \( |\psi_n\rangle \) in terms of \( \epsilon \) and discuss how the phase deviation grows as \( n \) increases.
+    Expand \( |\psi_n\rangle \) in terms of \( \epsilon \) and discuss how the phase deviation grows as \( n \) increases. Hint: Consider and use the first order approximation: $(P'(\theta))^n \approx P(\theta)^n + n\,\epsilon\, P(\theta)^{n-1} U + \mathcal{O}(\epsilon^2) \quad \\ (\text{assume  } O(\epsilon^2) \text{ is negligible and not required to be used in computation})$
     
     \item Given that quantum measurements return \( |+\rangle \) or \( |-\rangle \) with probabilities:
     \[
     P(+) = |\langle + | \psi_n \rangle|^2, \quad P(-) = |\langle - | \psi_n \rangle|^2,
     \]
-    derive how these probabilities deviate from their expected values as a function of \( n \) and \( \epsilon \).
+    derive how these probabilities deviate from their expected values as a function of \( n \) and \( \epsilon \). Hint: The product of unitaries is also unitary. While you may have difficulties figuring out the exact answer, you can surely get some bounds on this probability if you are a little bit of a math nerd \smiley{}.
+    
     
     \item Suppose \( \epsilon = 0.01 \), \( \theta = \frac{\pi}{4} \), and \( n = 100 \). Numerically estimate the probability \( P(+) \) and discuss how this compares to the ideal case where \( P(+) \) is determined by perfect interference.
     
@@ -247,11 +295,13 @@ d) For each basis state, execute it on a real IBM quantum computer with 100 shot
 \textbf{Summary:}This will get you exposed to the idea of state preparation, and implementing a more involved quantum circuit in Qiskit (to warm us up for the eventual Deutsch–Jozsa, Grover and Shor's circuits \smiley{})
 
 a) Implement the Toffoli circuit (below) in Qiskit and apply it to all 8 basis states.
-b) Before executing the Toffoli on a basis state, prepare the state using X gates (refer to why Ryan faced the Flip-ity Flop problem last homework \smiley{} - you were actually learning how to perform very basic state preparation!).
+b) Before executing the Toffoli on a basis state, prepare the state using X gates (now you know why Ryan had you do the the Flip-ity Flop problem last homework \smiley{} - you were actually learning how to perform very basic state preparation!).
 c) For each basis state, run it with the AerSimulator (without noise) for 1000 shots each and report the counts for each run.
 d) For each basis state, execute it on a real IBM quantum computer with 100 shots and report those results.
 e) Explain the impact that noisy intermediate scale hardware has on the theoretical predictions of the Toffoli applied to each basis state versus what is measured in each run. Research what the Toffoli gate should do to each of the 8 basis states to analyze each of the runs and understand how significantly noise affects measuring the "correct" answer.
+
 \includegraphics[]{toff.png}
+
 \subsection*{Bonus Problem: Lindblad Master Equation (50 pts)}
 
 \textbf{Summary:} The Lindblad master equation describes open quantum systems and their interactions with the environment. The mathematical objects involved are:
