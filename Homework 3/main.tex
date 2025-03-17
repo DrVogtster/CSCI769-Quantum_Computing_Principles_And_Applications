@@ -37,12 +37,11 @@
 \maketitle
 
 \subsection*{1) Quantum Repetition Code In Qiskit in Ideal Circumstances (20 pts)}
-\textbf{Summary}: In this problem my goal is to show you how quantum repetition code works, and its ability to correct errors with the Qiskit Simulator in an ideal situation.
+\textbf{Summary}: In this problem my goal is to show you how quantum repetition code works, and its ability to correct errors with the Qiskit Simulator in an ideal situation. We will based on a coin flip produce a state $\ket{000}$ or $\ket{100}$ based on if an $X$ gate is applied to the first qubit or not. In the ideal situation, under this assumption, we should always measure $\ket{000}$. Because the syndrome with either do nothing to the "good" $\ket{0}_{L} = \ket{000}$ state or flip the first bit back in $\ket{100}$ to $\ket{0}_{L} = \ket{000}$. We will see some interesting things here, team \smiley{}!
 \begin{itemize}
     \item a) Make a circuit in Qiskit that randomly applies an X gate with probability $0.5$ to a $\ket{0}$ qubit, and measure. Run this circuit 100 times on a simulator, and report what you measure. This "flipping of the coin" will be seen as adding a bit flip error to our logical qubit eventually \smiley{}.
-    \item (b) Consider the quantum repetition code below. Implement it (without the "error block"). The state $ \ket{\psi}$ is derived from randomly applying the X gate in part (a). Investigate which combinations of ancilla measurements through syndrome extraction and decoding correspond to correcting specific qubits with an X gate flip. Check the "c if" function in Qiskit to learn how to apply gates to certain qubits based on mid-circuit measurements! Measure all the data qubits after the error correction is complete to determine what state is observed, and perform 100 shots on a simulator. Also report the asilla qubit measurements in a plot as well.
-    \item  (c) Instead of one time of doing the error correction routine, do it ten times. Decide how to correct the qubit by a "majority vote rule" (since I am a fan of freedom and democracy team \smiley{})
-     of the ancilla qubit combinations measured. Do this 100 times on a simulator and compare it with the previous part results. Also report the ancilla qubit measurements in a plot as well.
+    \item (b) Consider the quantum repetition code below. Implement it (without the "error block"). The state $ \ket{\psi}$ is derived from randomly applying the X gate in part (a). Investigate which combinations of ancilla measurements through syndrome extraction and decoding correspond to correcting specific qubits with an X gate flip. Check the "c if" function in Qiskit to learn how to apply gates to certain qubits based on mid-circuit measurements to perform the "correct" block! Measure all the data qubits after the error correction is complete to determine what state is observed, and perform 100 shots on a simulator. Also report the asilla qubit measurements in a plot as well.
+    \item  (c) Instead of one time of doing the error correction routine with anscillas, do it ten times. That is to say, do the part of the error correction and then measure the ansillas, then do that repeatedly, to collect and count the number of times you see particular syndromes from the ansillas. Then based on which syndrome is seen the most correct the qubit by a "majority vote rule" (since I am a fan of freedom and democracy team \smiley{}). Do this 100 times on a simulator and compare it with the previous part results. Also report the ancilla qubit measurements in a plot as well.
     
 
 \end{itemize}
@@ -51,7 +50,7 @@
 \subsection*{2) Quantum Repetition Code in Qiskit On A Real Machine (20 pts)}
 \textbf{Summary:} The repetition code is meant to correct at most one bit flip error. Here we will explore its ability to do so on a real quantum machine.
 
-a) Redo 1) but running it on an IBM NISQ. Describe your observations on doing this problem on a simulator versus NISQ. 
+a) Redo 1) but running it on an IBM NISQ, instead of 100 shots do 10. Describe your observations on doing this problem on a simulator versus NISQ. 
 
 \subsection*{3) The Steane Code In Both an Ideal and Real World Machine (20 pts)}
 Consider the Steane Code: 
@@ -60,7 +59,7 @@ Consider the Steane Code:
 
 Redo the problems in 1) and 2) but with the Steane code, and a slight modification. In this case, we will be applying an X gate with probability $0.5$ to the second $\ket{0}$ qubit, but afterwards, also applying a Z gate with $0.5$ probability to the second. While in the measurements of the data qubits you will see you correct the flip, you cannot see a flip error was detected. From the  readout of the ancillas you will at least be able to see that the phase error was detected. But we cannot see if the phase error has been fixed, like a flip error, since we are in the standard basis. Maybe we'll redo this problem in the the Hadamard basis someday to observe the phase error has been corrected \smiley{}.
 \subsection*{4) Logical Error Rate (20 pts)}
-\textbf{Summary:} Logical qubits are the vechnical in which quantum computation is stable and scalable. While one has to have a lot of physical qubits to encode, we can achieve logical error rates small enough to support any algorithm of interest (theoretically). In this problem you will explore practically 
+\textbf{Summary:} Logical qubits are the vechnical in which quantum computation is stable and scalable. While one has to have a lot of physical qubits to encode, we can achieve logical error rates small enough to support any algorithm of interest (theoretically). In this problem you will explore that practically. 
 Consider a surface code used for quantum error correction, where the logical qubit is encoded using a grid of physical qubits. The parameters of the code are:
 
 \begin{itemize}
@@ -71,7 +70,7 @@ Consider a surface code used for quantum error correction, where the logical qub
     \item $N_q$: Number of physical qubits required to encode a single logical qubit.
 \end{itemize}
 
-The number of physical qubits needed to encode a logical qubit in a surface code is approximately:
+The number of physical data qubits needed to encode a logical qubit in a surface code is approximately:
 \begin{equation}
     N_q \approx c d^2,
 \end{equation}
@@ -149,6 +148,77 @@ For each gate, report the infidelity of the gate operation (the probability more
 Explanation of $U_0$: this is the initial condition which is meant for the closed system considered that regardless of starting in the zero or one state (each column of this identity matrix) the pulse sequence will achieve the Hadamard transformation. For the two qubit example this would be a $4\times 4$ identity. This means each column of $U(t)$ represents the quantum state that has evolved from the initial column of $U_0$. So for example in the one qubit case - the first column is the evolution if you start in the zero state, and the second column is if you start in the one state. For the 2 qubit it then follow each column corresponds to $\ket{00}$, $\ket{01}$, $\ket{10}$, $\ket{11}$
 
 Note: This is currently a closed system model, so you will notice quite low infidelities—perhaps $10^{-10}$ or smaller! This might confuse you, as I mentioned earlier that in the logical qubit example, the CNOT error rates are around $10^{-3}$. In open systems, it is probably going to be physically unlikely to achieve $10^{-10}$. In the next homework assignment, the bonus will involve generating pulse sequences for an open system, and you'll experience how those noises can significantly impact your infidelity compared to what you see here (it will get bigger by many orders of magnitude)! Stay tuned - Ryan is a man with a plan \smiley{}.
+
+Hint: For the $X$ gate, just change the gate in the starter code, and figure out how to plot the probabilities over time \smiley{}
+
+Hint 2: For the $CNOT$, this code and a bit of elbow grease, research, and some thought is all you need - there are multiple ways you can do it so you can even edit the code as well for a final solution, but keep the H\_d unchanged (you can mess around with different pulse shapes, etc, though):
+\begin{lstlisting}
+# Step 1: Define the System Hamiltonian
+# Define Pauli matrices
+sx = sigmax()
+sy = sigmay()
+sz = sigmaz()
+I = identity(2)
+
+# Parameters
+omega = 1.0  # Qubit energy
+J = 0.1      # Coupling strength
+
+# Drift Hamiltonian (System's natural evolution)
+H_d = (omega / 2) * (tensor(sz, I) + tensor(I, sz)) + J * (tensor(sx, sx) + tensor(sy, sy) + tensor(sz, sz))
+
+# Control Hamiltonians (External fields)
+H_c1 = tensor(sx, I)  # Control field on first qubit in x-direction
+H_c2 = tensor(sy, I)  # Control field on first qubit in y-direction
+H_c3 = tensor(I, sx)  # Control field on second qubit in x-direction
+H_c4 = tensor(I, sy)  # Control field on second qubit in y-direction
+
+H_controls = [H_c1, H_c2, H_c3, H_c4]
+
+# Step 2: Define Time-Dependent Control Pulses
+# Define time grid
+tlist = np.linspace(0, 10, 100)  # Time evolution from 0 to 10 with 100 steps
+
+# Example: Define control pulses (arbitrary pulse shapes)
+def control_pulse1(t, args):
+    return np.sin(t)  # Example: sinusoidal control field
+
+def control_pulse2(t, args):
+    return np.exp(-t)  # Example: exponentially decaying field
+
+# Control field amplitudes (can be optimized later)
+c1_coeff = [control_pulse1]
+c2_coeff = [control_pulse2]
+c3_coeff = [lambda t, args: 0.5 * np.sin(t)]  # Another example function
+c4_coeff = [lambda t, args: 0.5 * np.exp(-t)]
+
+# Step 3: Set Up the Time Evolution
+# Define the Hamiltonian as a list with time-dependent components
+H = [H_d, 
+     [H_c1, c1_coeff], 
+     [H_c2, c2_coeff], 
+     [H_c3, c3_coeff], 
+     [H_c4, c4_coeff]]
+
+# Step 4: Solve the Schrödinger Equation
+# Initial state (Example: |00⟩ state)
+psi0 = tensor(basis(2, 0), basis(2, 0))
+
+# Solve the Schrödinger equation
+result = mesolve(H, psi0, tlist, [], [])
+
+# Extract expectation values for analysis (e.g., probability of being in state |11⟩)
+expectations = [result.states[i].dag() * tensor(basis(2, 1), basis(2, 1)) * result.states[i] for i in range(len(tlist))]
+
+# Step 5: Optimize Control Pulses (Optional)
+# Define optimization parameters
+n_ts = 100  # Number of time slices
+evo_time = 10  # Evolution time
+fid_err_targ = 1e-4  # Target fidelity error
+
+\end{lstlisting}
+
+Hint 3: The optimize\_pulse function in qutip pulseoptim library might be useful!!!
 
 \end{document}
 
