@@ -314,8 +314,8 @@ e) Explain the impact that noisy intermediate scale hardware has on the theoreti
     \item $\gamma$ - The decay rate associated with spontaneous emission.
     \item $\sigma_-$ and $\sigma_+$ - The lowering and raising operators, respectively, defined as:
     \begin{align*}
-        \sigma_- &= \begin{bmatrix} 0 & 0 \\ 1 & 0 \end{bmatrix}, \quad
-        \sigma_+ = \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix}.
+        \sigma_- &= \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix}, \quad
+        \sigma_+ = \begin{bmatrix} 0 & 0 \\ 1 & 0 \end{bmatrix}.
     \end{align*}
     \item $\sigma_z$ - The Pauli-Z matrix:
     \begin{equation*}
@@ -380,7 +380,7 @@ This represents a completely mixed state, indicating maximal uncertainty in the 
 \end{equation}
 where $H = \frac{1}{2} \sigma_z$ and $\gamma = 1$. Show that $P_0(t) + P_1(t) = \rho_{00}(t) + \rho_{11}(t)=1 $ : Hint Based on how you solve the problem this will be obvious, but in worst case, use the fact $\rho_{00}(0) +\rho_{11}(0)=1$. Lastly what happens to each one of these probabilities as $t \rightarrow \infty$?
 
-(b) Use QuTiP to numerically solve this equation using 15000 time steps for $t\in[0,15]$, and using an initial condition above where 50 \% of the time the initial state is $\ket{0}$ and 50 \% of the time the initial state is $\ket{1}$ state. Plot  the numerical solutions for $\rho_{00}(t), \rho_{11}(t)$ and $\rho_{00}(t) + \rho_{11}(t)$. Also plot the the exact value of these quantities as found in a) to compare the numerical solutions with the analytical solutions. Do they agree?
+(b) Use QuTiP to numerically solve this equation using 15000 time steps for $t\in[0,15]$, and using an initial condition above where 50 \% of the time the initial state is $\ket{0}$ and 50 \% of the time the initial state is $\ket{1}$ state. Plot  the numerical solutions for $\rho_{00}(t), \rho_{11}(t)$ and $\rho_{00}(t) + \rho_{11}(t)$. Also plot the the exact value of these quantities as found in a) to compare the numerical solutions with the analytical solutions. Do they agree? 
 
 \end{document}
 
